@@ -55,6 +55,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the website.
 
+If you plan to use admin uploads for announcements, gallery images, or magazine PDFs, also set:
+
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY` (server-only)
+
+The upload flow uses a public Supabase Storage bucket named `uploads`.
+
 ## Project Structure
 
 ```text

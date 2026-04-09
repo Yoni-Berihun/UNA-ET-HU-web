@@ -48,6 +48,9 @@ Notes:
 
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY` (server-only, required for the upload API)
+
+5. Make sure your Supabase Storage bucket named `uploads` exists, or allow the server upload route to create it with the service role key.
 
 ## Step 3: Generate Prisma Client
 

@@ -60,6 +60,7 @@ export default function Navigation() {
   };
 
   const canGoBack = pathname !== '/' && !pathname.startsWith('/admin');
+  const isMember = (session as any)?.user?.role === 'MEMBER';
 
   const teamLinks = [
     { name: 'Our Teams Overview', href: '/teams', icon: 'groups' },
@@ -298,14 +299,16 @@ export default function Navigation() {
                           My Profile
                         </Link>
 
-                        <Link
-                          href="/settings"
-                          onClick={() => setIsDropdownOpen(false)}
-                          className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                        >
-                          <span className="material-symbols-outlined text-lg">settings</span>
-                          Settings
-                        </Link>
+                        {!isMember && (
+                          <Link
+                            href="/settings"
+                            onClick={() => setIsDropdownOpen(false)}
+                            className="flex items-center gap-3 px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                          >
+                            <span className="material-symbols-outlined text-lg">settings</span>
+                            Settings
+                          </Link>
+                        )}
                       </div>
 
                       <div className="border-t border-slate-200 dark:border-slate-700 pt-1">
@@ -499,14 +502,16 @@ export default function Navigation() {
                   My Profile
                 </Link>
 
-                <Link
-                  href="/settings"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-4 px-4 py-3 text-sm font-bold text-slate-800 dark:text-slate-100 rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
-                >
-                  <span className="material-symbols-outlined text-[24px] text-slate-500 group-hover:text-primary transition-colors">settings</span>
-                  Settings
-                </Link>
+                {!isMember && (
+                  <Link
+                    href="/settings"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-4 px-4 py-3 text-sm font-bold text-slate-800 dark:text-slate-100 rounded-full hover:bg-primary/10 hover:text-primary transition-all group"
+                  >
+                    <span className="material-symbols-outlined text-[24px] text-slate-500 group-hover:text-primary transition-colors">settings</span>
+                    Settings
+                  </Link>
+                )}
               </>
             ) : null}
 

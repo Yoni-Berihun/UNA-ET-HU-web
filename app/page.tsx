@@ -3,6 +3,8 @@ import Footer from './components/Footer';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   let announcements: Array<{ id: string; title: string; content: string | null; image: string | null }> = [];
 
