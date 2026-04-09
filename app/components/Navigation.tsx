@@ -83,7 +83,7 @@ export default function Navigation() {
         </button>
       )}
 
-      <header className="sticky top-0 z-[5000] isolate w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#212935]/80 backdrop-blur-md overflow-x-hidden overflow-y-visible">
+      <header className="sticky top-0 z-[5000] isolate w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#212935]/80 backdrop-blur-md overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
@@ -257,7 +257,7 @@ export default function Navigation() {
 
                   {/* Dropdown Menu */}
                   {isDropdownOpen && (
-                    <div className="fixed top-16 right-4 z-[5100] mt-2 w-64 bg-white dark:bg-[#1a1d23] border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="absolute right-0 top-full mt-2 z-[5100] w-64 bg-white dark:bg-[#1a1d23] border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700">
                         <p className="text-sm font-semibold text-slate-900 dark:text-white">
                           {session.user?.name}

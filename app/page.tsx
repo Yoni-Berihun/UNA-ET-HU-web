@@ -4,10 +4,23 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 
 export default async function Home() {
-  const announcements = await prisma.heroPost.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: 'desc' },
-  });
+  let announcements: Array<{ id: string; title: string; content: string | null; image: string | null }> = [];
+
+  try {
+    announcements = await prisma.heroPost.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        image: true,
+      },
+    });
+  } catch (error) {
+    // Keep the home page available even when DB is temporarily unreachable.
+    console.error('Failed to load announcements:', error);
+  }
 
   return (
     <>
