@@ -14,7 +14,7 @@ export default async function Home() {
       <Navigation />
       <main>
         {announcements.length > 0 && (
-          <section className="bg-slate-900 border-b border-white/10">
+          <section className="relative z-[4500] bg-slate-900 border-b border-white/10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 border border-primary/30 px-3 py-1 text-xs font-black uppercase tracking-widest text-primary animate-pulse">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -44,7 +44,7 @@ export default async function Home() {
           </div>
           {/* Top Right Announcement (Absolute - Desktop Only) */}
           {announcements.length > 0 && (
-            <div className="hidden md:flex absolute top-4 right-4 z-30 flex-col gap-2 w-full max-w-[200px]">
+            <div className="hidden md:flex absolute top-4 right-4 z-[4500] flex-col gap-2 w-full max-w-[200px]">
               {announcements.map((post: any) => (
                 <Link href={`/announcements/${post.id}`} key={post.id} className="block group">
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-2 shadow-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-[1.02]">

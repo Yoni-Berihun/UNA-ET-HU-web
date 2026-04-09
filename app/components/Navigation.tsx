@@ -76,14 +76,14 @@ export default function Navigation() {
       {canGoBack && (
         <button
           onClick={() => router.back()}
-          className="fixed top-[60px] left-4 z-40 bg-white/90 dark:bg-[#1a1d23]/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-gray-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2 shadow-lg transition-all hover:scale-105 active:scale-95 group"
+          className="fixed top-[60px] left-4 z-[5001] bg-white/90 dark:bg-[#1a1d23]/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-gray-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full p-2 shadow-lg transition-all hover:scale-105 active:scale-95 group"
           aria-label="Go back"
         >
           <span className="material-symbols-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
         </button>
       )}
 
-      <header className="sticky top-0 z-[1000] w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#212935]/80 backdrop-blur-md overflow-x-hidden overflow-y-visible">
+      <header className="sticky top-0 z-[5000] isolate w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-[#212935]/80 backdrop-blur-md overflow-x-hidden overflow-y-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
@@ -124,7 +124,7 @@ export default function Navigation() {
 
                   {/* Dropdown Menu */}
                   <div
-                    className={`absolute top-full left-0 z-[60] mt-2 w-60 bg-white dark:bg-[#1a1d23] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-200 origin-top ${isTeamsOpen
+                    className={`absolute top-full left-0 z-[5050] mt-2 w-60 bg-white dark:bg-[#1a1d23] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-200 origin-top ${isTeamsOpen
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
                       }`}
@@ -188,7 +188,7 @@ export default function Navigation() {
 
                   {/* Dropdown Menu */}
                   <div
-                    className={`absolute top-full left-0 z-[60] mt-2 w-48 bg-white dark:bg-[#1a1d23] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-200 origin-top ${isNewsletterOpen
+                    className={`absolute top-full left-0 z-[5050] mt-2 w-48 bg-white dark:bg-[#1a1d23] rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-200 origin-top ${isNewsletterOpen
                       ? 'opacity-100 translate-y-0 scale-100'
                       : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
                       }`}
@@ -234,7 +234,7 @@ export default function Navigation() {
                 <div className="w-8 h-8 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
               ) : session ? (
                 // Show user avatar and dropdown when logged in
-                <div className="relative hidden sm:block" ref={dropdownRef}>
+                <div className="relative z-[5100] hidden sm:block" ref={dropdownRef}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="flex items-center gap-3 hover:opacity-80 transition-opacity"
@@ -257,7 +257,7 @@ export default function Navigation() {
 
                   {/* Dropdown Menu */}
                   {isDropdownOpen && (
-                    <div className="absolute right-0 z-[70] mt-2 w-64 bg-white dark:bg-[#1a1d23] border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="fixed top-16 right-4 z-[5100] mt-2 w-64 bg-white dark:bg-[#1a1d23] border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                       <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700">
                         <p className="text-sm font-semibold text-slate-900 dark:text-white">
                           {session.user?.name}
