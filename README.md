@@ -19,6 +19,21 @@ Official website for United Nations Association - Hawassa University Chapter.
 - PostgreSQL database
 - npm or yarn
 
+### Local Environment Setup
+
+For local development, each teammate should keep their own env file on their machine.
+
+1. Copy [.env.example](.env.example) to [.env.local](.env.local) or [.env](.env).
+2. Fill in the values from your local or Supabase setup.
+3. Do not commit the real env file.
+
+Recommended team flow:
+
+- Keep secrets out of git.
+- Use [.env.example](.env.example) as the shared template.
+- Use Vercel environment variables for production.
+- Use [.env.local](.env.local) for your personal development machine.
+
 ### Installation
 
 1. Install dependencies:
@@ -32,6 +47,14 @@ npm install
 ```bash
 cp .env.example .env
 ```
+
+If you prefer the more common Next.js local override file, use:
+
+```bash
+cp .env.example .env.local
+```
+
+Either file works for local development because `.env*` files are ignored by git in this repo.
 
 1. Configure your database connection.
 
@@ -62,6 +85,18 @@ If you plan to use admin uploads for announcements, gallery images, or magazine 
 - `SUPABASE_SERVICE_ROLE_KEY` (server-only)
 
 The upload flow uses a public Supabase Storage bucket named `uploads`.
+
+### Team Workflow
+
+For local development, each teammate should create their own `.env.local` file from `.env.example` and keep it uncommitted.
+
+Recommended split:
+
+- `.env.example`: committed template with variable names only
+- `.env.local`: each developer's local secrets and local values
+- Vercel environment variables: production values for deploys
+
+This lets everyone run `npm run dev` locally while Vercel handles preview and production redeploys from git pushes.
 
 ## Project Structure
 

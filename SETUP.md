@@ -17,10 +17,14 @@ This repo expects PostgreSQL via Prisma. Prisma is configured to read:
 
 Use the template in [.env.example](.env.example).
 
+For day-to-day local work, copy [.env.example](.env.example) to `.env.local` on each machine and fill in the real values there.
+
 Notes:
 
 - Prisma CLI loads `.env` by default. If you only create `.env.local`, Prisma may not see your DB URLs.
 - Recommended: put `DATABASE_URL` and `DIRECT_URL` in `.env` for Prisma commands.
+
+If you prefer `.env.local` only, also export the values in your shell before running Prisma commands, or keep a local `.env` for Prisma and `.env.local` for the app.
 
 ### Option 1: Using Local PostgreSQL
 
