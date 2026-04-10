@@ -21,18 +21,18 @@ Official website for United Nations Association - Hawassa University Chapter.
 
 ### Local Environment Setup
 
-For local development, each teammate should keep their own env file on their machine.
+For local development, each teammate should keep their own env file in the project root on their machine.
 
-1. Copy [.env.example](.env.example) to [.env.local](.env.local) or [.env](.env).
+1. Copy [.env.example](.env.example) to [.env](.env) in the project root.
 2. Fill in the values from your local or Supabase setup.
-3. Do not commit the real env file.
+3. Keep [.env](.env) uncommitted.
 
 Recommended team flow:
 
 - Keep secrets out of git.
-- Use [.env.example](.env.example) as the shared template.
+- Use [.env.example](.env.example) as the shared template that is safe to push.
 - Use Vercel environment variables for production.
-- Use [.env.local](.env.local) for your personal development machine.
+- Use [.env](.env) for your personal development machine.
 
 ### Installation
 
@@ -48,13 +48,7 @@ npm install
 cp .env.example .env
 ```
 
-If you prefer the more common Next.js local override file, use:
-
-```bash
-cp .env.example .env.local
-```
-
-Either file works for local development because `.env*` files are ignored by git in this repo.
+This creates the root-level [.env](.env) file that Next.js and Prisma can read locally.
 
 1. Configure your database connection.
 
