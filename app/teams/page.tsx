@@ -5,9 +5,9 @@ import Link from 'next/link';
 // Data for Presidency (2 members)
 const presidency = [
   {
-    name: "Abebe Kebede",
+    name: "Aminu Moges",
     role: "President",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    image: "/images/aminu moges.jpg",
     linkedin: "#",
     twitter: "#",
   },
@@ -23,28 +23,28 @@ const presidency = [
 // Data for Team Heads (5 members) - Uses Black&White to Color hover effect
 const teamHeads = [
   {
-    name: "Martha Yoseph",
-    role: "MUN Coordinator",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1GYx-P3f0E6U58pbItggBdyuiBDX8OqM-E4927xJ2atODrHQFGjaMcN00Ao5YIf94wUjEpyL8-M1a6KnM1g5dcA8Jw1WdgUlTN9UBxRvjlt4LVyrtH0gmkDHppKgm5faXu3M_HDgx41EkPa6Hbq-pJ7hGi_lpYhjXVRcHZ51DencqV0ikLVXQNdhm9cuYTcIztk8_3YOUbIP3yL_Wvzfd25SyGsauJIcO-GHgKGlDsOu5fJq9414xw4HfsMJx3tjOdZu_5WlQ8ujT",
+    name: "Rose Kassa",
+    role: "MUN Team Head",
+    image: "/images/MNU_head.jpg",
   },
   {
-    name: "Dawit Belay",
-    role: "Head of Delegates",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBi5nf8oViN_Y7kxSH5YfEA3E-W_YUV33_AfW6g2lsuH_nEt2eK7To33gA4xnCBRWudkJ4_d3sZgfScBzNUjN87mb8Ifnymf4d275NfAYxhPzyeJEhy_Ce-bQjfmIwq-J8eb0ALlMw6oxqFUqQ1fvbyNMKX75-apAedog0xWmOYdk0NUNuNLmPeVngPTQsn8bfwL-bwJqyjqW0Vd4uNVjm6qeIrKy5HJPcqwRtRRZyX5mYz1X74ZEdh5z4uDQhOhirfNfyMq9gROAXB",
+    name: "Yonatan Berihun",
+    role: "Innovation Team Head",
+    image: "/images/Inov.jpg",
   },
   {
-    name: "Lulit Mesfin",
-    role: "Research Lead",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmvlebazCi9SebIq1cgUgfhGSebv3IPXKNQoGuF1eiEVVAZKehDcZLI2T4fcR50m1xfBqjE5ZtuNt6fbFbfnSyHz9t-ZPkmhDUkO5rkWamS0w7dgblsfF_x3K5KH3oIilJ8XEZeJULj5w_QX7GbtQi9LNTQP-pUL0sG9LfGpejYj9NmcCeGhI4VJwT4VjS7najz-9s0YgZH-KmvOe5cW2NixPVgUuyIJmjNuTDPV942xZy4R0EDi7wjFJ8j7ZIxqiCClBWb6DceN-t",
+    name: "Kalkidan Kebede",
+    role: "Project Team Head",
+    image: "/images/proj.jpg",
   },
   {
-    name: "Yonas Kebede",
-    role: "Public Speaking Coach",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBq5xpjSyeUaPoCVLcRYGacSX1urxylS_yAlDzmbvROCYS-2c4Gf0eKDbZ22t8LCG-3WbBFaEe-N3NXGYUJMLI6QKA1qlq6A8plPdP36KimOuBYnKQvMCrOJqMedN0vnHC76hXcTMwy2lcXj4mrdcO_PLd01S-dqkDLnZkkLXb9IMWDzW6mRKuGhI-CnipdYpJ4BRzKkF3IlYtDeMK5zrrQA1B_8keTh-FdUgTUpdEo9DmMVSDrzwK5BRyTQk8-6yZVmwNZNVcT1vOa",
+    name: "Abinet Girma",
+    role: "SDG Ambassadors Head",
+    image: "/images/sdg.jpg",
   },
   {
-    name: "Bethelhem Assefa", // Placeholder
-    role: "Events & Logistics Head",
+    name: "Timihirt Shibiru", // Placeholder
+    role: "Debate Team Head",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
   },
 ];
