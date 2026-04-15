@@ -196,7 +196,7 @@ export default function Navigation() {
                   >
                     <div className="p-2 flex flex-col gap-1">
                       <Link
-                        href="/magazine"
+                        href="/newsletter/magazine"
                         className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm font-medium text-[#5e5f8d] dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors"
                         onClick={() => setIsNewsletterOpen(false)}
                       >
@@ -452,7 +452,7 @@ export default function Navigation() {
               >
                 <div className="pl-4 space-y-1 ml-4 border-l-2 border-slate-100 dark:border-slate-800 my-1">
                   <Link
-                    href="/magazine"
+                    href="/newsletter/magazine"
                     onClick={() => setIsMenuOpen(false)}
                     className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 rounded-lg hover:text-primary dark:hover:text-white transition-colors"
                   >

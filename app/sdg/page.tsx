@@ -353,90 +353,6 @@ function SDGAboutTeam() {
     );
 }
 
-const sdgColors: Record<number, string> = {
-    1: "#E5243B",
-    2: "#DDA63A",
-    3: "#4C9F38",
-    4: "#C5192D",
-    5: "#FF3A21",
-    10: "#DD1367",
-    13: "#3F7E44",
-    16: "#00689D",
-    17: "#19486A",
-};
-
-const ambassadors = [
-    {
-        name: "Sarah Ahmed",
-        role: "Chapter President",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-        sdgs: [1, 2],
-    },
-    {
-        name: "David Chen",
-        role: "Head of Projects",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-        sdgs: [3, 4],
-    },
-    {
-        name: "Elara Vance",
-        role: "Community Lead",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
-        sdgs: [5, 10, 16],
-    },
-    {
-        name: "Marcus Johnson",
-        role: "Partnerships",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-        sdgs: [13, 17],
-    },
-];
-
-function LeadAmbassadors() {
-    return (
-        <section className="py-24 bg-card">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <span className="text-sm font-bold uppercase tracking-wider text-primary">The Team</span>
-                    <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-                        Meet the Lead Ambassadors
-                    </h2>
-                    <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-                        Passionate individuals dedicating their time and skills to advance the Global Goals in
-                        our region.
-                    </p>
-                </div>
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                    {ambassadors.map((ambassador) => (
-                        <div key={ambassador.name} className="text-center group">
-                            <div className="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-muted group-hover:ring-primary/30 transition-all">
-                                <Image
-                                    src={ambassador.image || "/placeholder.svg"}
-                                    alt={ambassador.name}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <h3 className="font-bold text-lg">{ambassador.name}</h3>
-                            <p className="text-primary text-sm font-medium">{ambassador.role}</p>
-                            <div className="flex justify-center gap-1 mt-3">
-                                {ambassador.sdgs.map((sdg) => (
-                                    <span
-                                        key={sdg}
-                                        className="w-3 h-3 rounded-full"
-                                        style={{ backgroundColor: sdgColors[sdg] }}
-                                        title={`SDG ${sdg}`}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
 const initiatives = [
     {
         title: "Green Hiking at Mt. Tabor",
@@ -565,7 +481,6 @@ export default function SDGPage() {
 
                 <SDGGrid />
                 <ImpactInitiatives />
-                <LeadAmbassadors />
                 <SDGCta />
             </main>
             <Footer />

@@ -209,33 +209,6 @@ export default function InnovationPage() {
             </div>
           </div>
         </section>
-
-        <section id="registration" className="border-t border-white/10 bg-[#0a1118] py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="relative overflow-hidden rounded-3xl border border-primary/25 bg-gradient-to-br from-[#121b26] via-[#152a45]/80 to-[#0a1118] p-8 shadow-[0_0_60px_rgba(0,163,255,0.08)] sm:p-12">
-              <div className="relative max-w-2xl">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-300">
-                  Registration
-                </p>
-                <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                  Secure your seat
-                </h2>
-                <p className="mt-4 text-slate-300">
-                  Use the register button on an event card to land here, then complete your
-                  application through your official form or inbox.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="mailto:register@example.org?subject=Event%20registration"
-                    className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-[0_0_24px_rgba(0,163,255,0.35)] transition hover:bg-primary/90"
-                  >
-                    Email to register
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>

@@ -217,33 +217,6 @@ export default function DebatePage() {
             </div>
           </div>
         </section>
-
-        <section id="registration" className="border-t border-white/10 bg-[#08111f] py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="relative overflow-hidden rounded-3xl border border-primary/25 bg-gradient-to-br from-[#0d1b2c] via-[#143053] to-[#08111f] p-8 shadow-[0_0_60px_rgba(0,163,255,0.12)] sm:p-12">
-              <div className="relative max-w-2xl">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-300">
-                  Join the debate team
-                </p>
-                <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                  Apply for the next chamber
-                </h2>
-                <p className="mt-4 text-slate-300">
-                  Submit your interest, preferred committee topics, and speaking background.
-                  Selected applicants are invited to a placement round.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="mailto:debate@unaethu.org?subject=Debate%20Team%20Application"
-                    className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-[0_0_24px_rgba(0,163,255,0.35)] transition hover:bg-primary/90"
-                  >
-                    Email application
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
