@@ -1,0 +1,8 @@
+node_modules
+.env
+dist
+build
+tsc_errors.txt
+tsc_output.txt
+.next/
+public/*.pdf

@@ -1,0 +1,243 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  fullName  String   @map("full_name")
+  email     String   @unique
+  password  String?
+  role      Role     @default(MEMBER)
+  avatar    String?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  blogPosts BlogPost[]
+  comments  Comment[]
+  likes     Like[]
+
+  @@map("users")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  MEMBER
+  GUEST
+}
+
+model BlogPost {
+  id            String     @id @default(cuid())
+  title         String
+  slug          String     @unique
+  excerpt       String?    @db.Text
+  content       String     @db.Text
+  featuredImage String?    @map("featured_image")
+  category      String
+  orientation   String     @default("LANDSCAPE")
+  status        PostStatus @default(DRAFT)
+  authorId      String     @map("author_id")
+  teamId        String?    @map("team_id")
+  publishedAt   DateTime?  @map("published_at")
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+
+  author   User      @relation(fields: [authorId], references: [id])
+  team     Team?     @relation(fields: [teamId], references: [id], onDelete: Restrict)
+  comments Comment[]
+  likes    Like[]
+  tags     Tag[]
+
+  @@index([teamId])
+  @@map("blog_posts")
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  postId    String   @map("post_id")
+  authorId  String   @map("author_id")
+  parentId  String?  @map("parent_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  post    BlogPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author  User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  parent  Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies Comment[] @relation("CommentReplies")
+  likes   Like[]
+
+  @@map("comments")
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  postId    String?  @map("post_id")
+  commentId String?  @map("comment_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  post    BlogPost? @relation(fields: [postId], references: [id], onDelete: Cascade)
+  comment Comment?  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@unique([commentId, userId])
+  @@map("likes")
+}
+
+model Tag {
+  id    String     @id @default(cuid())
+  name  String     @unique
+  posts BlogPost[]
+
+  @@map("tags")
+}
+
+model Team {
+  id          String       @id @default(cuid())
+  name        String
+  slug        String       @unique
+  description String?      @db.Text
+  image       String?
+  members     TeamMember[]
+  blogPosts   BlogPost[]
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  @@map("teams")
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  fullName  String   @map("full_name")
+  role      String
+  bio       String?  @db.Text
+  image     String?
+  teamId    String   @map("team_id")
+  order     Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@map("team_members")
+}
+
+model Conference {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  date        DateTime
+  location    String?
+  image       String?
+  team        String?  @map("team")
+  status      String   @default("UPCOMING")
+  applyLink   String?  @map("apply_link")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("conferences")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  image       String?
+  status      String   @default("ACTIVE")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model GalleryImage {
+  id        String    @id @default(cuid())
+  url       String
+  caption   String?
+  width     Int       @default(800)
+  height    Int       @default(600)
+  category  String?
+  eventDate DateTime? @map("event_date")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@map("gallery_images")
+}
+
+model AnnualReport {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  year        Int?
+  fileUrl     String   @map("file_url")
+  publishedAt DateTime @default(now()) @map("published_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("annual_reports")
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("newsletter_subscribers")
+}
+
+model HeroPost {
+  id          String   @id @default(cuid())
+  title       String
+  content     String?  @db.Text
+  image       String?
+  orientation String   @default("LANDSCAPE")
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("hero_posts")
+}
+
+model Magazine {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  coverImage  String?  @map("cover_image")
+  embedCode   String   @map("embed_code") @db.Text
+  pdfUrl      String?  @map("pdf_url")
+  publishedAt DateTime @default(now()) @map("published_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("magazines")
+}
+
+model Developer {
+  id                String   @id @default(cuid())
+  fullName          String   @map("full_name")
+  title             String
+  mobile            String
+  email             String
+  image             String?
+  linkedinUsername  String?  @map("linkedin_username")
+  instagramUsername String?  @map("instagram_username")
+  telegramUsername  String?  @map("telegram_username")
+  order             Int      @default(0)
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@map("developers")
+}
